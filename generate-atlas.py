@@ -3,15 +3,13 @@ import unicodedata
 import subprocess
 
 def generate_visible_ucs2_charset(output_file="ucs2-visible.txt"):
-    entries = ['0x20']
-    for codepoint in range(0x0000, 0x10000):
+    entries = []
+    for codepoint in range(0x0000, 0x10000): # Hytale only support 0x0000-0xFFFF i guess
         ch = chr(codepoint)
         category = unicodedata.category(ch)
         if category[0] in ("C", "Z"):
             if category != "Zs":
                 continue
-        if ch.strip() == "":
-            continue
         entries.append(f"0x{codepoint:X}")
 
     with open(output_file, "w", encoding="utf-8") as f:
@@ -24,12 +22,12 @@ def run_msdf_atlas_gen():
         "-charset", "ucs2-visible.txt",
         "-type", "msdf",
         "-pxrange", "8",
-        "-dimensions", f"10240 10240",
+        "-dimensions", "10240 10240",
         "-yorigin", "top",
         "-imageout", "atlas.png", # Rename it to Lexend-Bold, NotoMono-Regular, NunitoSans-ExtraBold, NunitoSans-Medium
         "-json", "atlas.json"
     ]
-    subprocess.run(cmd, check=True)
+    subprocess.run(" ".join(cmd), check=True)
 
 if __name__ == "__main__":
     charset_file = generate_visible_ucs2_charset("ucs2-visible.txt")

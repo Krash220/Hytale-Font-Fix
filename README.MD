@@ -12,5 +12,6 @@ This plugin modifies the game's font texture size limit by raising it to 10240x1
 5. Enjoy it!
 
 ### This repository relies on the following repositories:  
-[ThirteenAG's Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader)  
-[Chlumsky's msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen)
+>[ThirteenAG's Ultimate ASI Loader](https://github.com/ThirteenAG/Ultimate-ASI-Loader)  
+[Chlumsky's msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen)  
+[Source Han Sans](https://github.com/adobe-fonts/source-han-sans)
