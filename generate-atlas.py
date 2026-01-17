@@ -8,7 +8,8 @@ def generate_visible_ucs2_charset(output_file="ucs2-visible.txt"):
         ch = chr(codepoint)
         category = unicodedata.category(ch)
         if category[0] in ("C", "Z"):
-            continue
+            if category != "Zs":
+                continue
         if ch.strip() == "":
             continue
         entries.append(f"0x{codepoint:X}")
